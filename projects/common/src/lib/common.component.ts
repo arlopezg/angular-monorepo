@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'lib-common',
   standalone: true,
-  template: `<p>I'm a (reusable) CommonComponent!</p>`,
+  template: `<p>Running client "{{this.clientName}}" works!</p>`,
 })
-export class CommonComponent { }
+export class CommonComponent {
+  @Input({ required: true }) clientName?: string;
+}

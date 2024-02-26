@@ -6,12 +6,6 @@ import { CommonComponent } from '@common-pkg';
   selector: 'app-root',
   standalone: true,
   imports: [CommonComponent],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
-    <lib-common/>
-  `,
-  styles: [],
+  template: `<lib-common clientName="CSR App"/>`,
 })
-export class AppComponent {
-  title = 'project-a';
-}
+export class AppComponent { }
