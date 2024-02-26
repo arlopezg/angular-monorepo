@@ -7,4 +7,5 @@ import { CommonComponent } from '@common-pkg';
   imports: [CommonComponent],
   template: `<lib-common clientName="SSR App"/>`,
 })
-export class AppComponent { }
+export class AppComponent {
+}

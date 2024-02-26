@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "yoimo-live-staging"
+  },
+  "targets": {
+    "yoimo-live-staging": {
+      "hosting": {
+        "project-ssr": [
+          "yoimo-live-staging"
+        ]
+      }
+    }
+  }
+}

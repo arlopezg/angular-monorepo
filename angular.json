@@ -174,7 +174,7 @@
             ],
             "scripts": [],
             "server": "projects/project-ssr/src/main.server.ts",
-            "prerender": true,
+            "prerender": false,
             "ssr": {
               "entry": "projects/project-ssr/server.ts"
             }
@@ -220,6 +220,22 @@
           "options": {
             "buildTarget": "project-ssr:build"
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "buildTarget": "project-ssr:build:production",
+            "functionName": "monorepoDemoSsr",
+            "region": "us-central1"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "project-ssr:build:production",
+              "serveTarget": "project-ssr:serve:production"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
