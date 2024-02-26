@@ -2,7 +2,10 @@
   "name": "monorepo",
   "version": "0.0.0",
   "scripts": {
-    "start:ssr": "ng build project-ssr && node dist/project-ssr/server/server.mjs",
+    "build:lib": "ng build common",
+    "build:ssr": "ng build project-ssr",
+    "build": "ng build project-a",
+    "start:ssr": "npm run build:ssr && node dist/project-ssr/server/server.mjs",
     "start": "ng serve project-a --port 4001",
     "watch": "ng build --watch --configuration development"
   },
@@ -12,9 +15,10 @@
     "@angular/common": "^17.2.0",
     "@angular/compiler": "^17.2.0",
     "@angular/core": "^17.2.0",
+    "@angular/fire": "^17.0.1",
     "@angular/forms": "^17.2.0",
-    "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
+    "@angular/platform-browser": "^17.2.0",
     "@angular/platform-server": "^17.2.0",
     "@angular/router": "^17.2.0",
     "@angular/ssr": "^17.2.0",

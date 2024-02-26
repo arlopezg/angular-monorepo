@@ -18,14 +18,11 @@
             "project": "projects/common/ng-package.json"
           },
           "configurations": {
-            "production": {
-              "tsConfig": "projects/common/tsconfig.lib.prod.json"
-            },
-            "development": {
+            "default": {
               "tsConfig": "projects/common/tsconfig.lib.json"
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "default"
         }
       }
     },
