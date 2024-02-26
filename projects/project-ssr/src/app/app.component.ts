@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonComponent } from '@common-pkg';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonComponent],
   template: `
     <h1>Welcome to {{title}}!</h1>
 
-    <router-outlet />
+    <lib-common/>
   `,
-  styles: [],
 })
 export class AppComponent {
   title = 'project-ssr';

@@ -2,9 +2,8 @@
   "name": "monorepo",
   "version": "0.0.0",
   "scripts": {
-    "serve:ssr:project-ssr": "node dist/project-ssr/server/server.mjs",
-    "start:a": "ng serve project-a --port 42001",
-    "start:b": "ng serve project-b --port 42002",
+    "start:ssr": "ng build project-ssr && node dist/project-ssr/server/server.mjs",
+    "start": "ng serve project-a --port 4001",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
