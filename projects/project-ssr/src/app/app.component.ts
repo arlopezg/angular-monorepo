@@ -5,7 +5,7 @@ import { CommonComponent } from '@common-pkg';
   selector: 'app-root',
   standalone: true,
   imports: [CommonComponent],
-  template: `<lib-common clientName="SSR App"/>`,
+  template: `<lib-common greeting="Welcome to" clientName="SSR App"/>`,
 })
 export class AppComponent {
 }

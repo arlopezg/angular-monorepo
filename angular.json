@@ -59,6 +59,14 @@
       "root": "projects/project-a",
       "sourceRoot": "projects/project-a/src",
       "prefix": "app-a",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": {
+            "translation": "projects/project-a/locale/messages.es.json"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -97,6 +105,11 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "es": {
+              "localize": [
+                "es"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -109,6 +122,12 @@
             },
             "development": {
               "buildTarget": "project-a:build:development"
+            },
+            "en": {
+              "buildTarget": "project-a:build:production,en"
+            },
+            "es": {
+              "buildTarget": "project-a:build:production,es"
             }
           },
           "defaultConfiguration": "development"
@@ -116,7 +135,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "project-a:build"
+            "buildTarget": "project-a:build",
+            "format": "json",
+            "outputPath": "projects/project-a/locale"
           }
         }
       }

@@ -7,7 +7,7 @@
     "build:ssr": "ng build project-ssr",
     "deploy:ssr": "FIREBASE_FRAMEWORKS_BUILD_TARGET=project-ssr:build:production ng deploy --project=project-ssr",
     "start:ssr": "npm run build:ssr && node dist/project-ssr/server/server.mjs",
-    "start": "ng serve project-a --port 4001"
+    "start": "ng serve project-a --port 4001 --configuration=development,es"
   },
   "private": true,
   "dependencies": {
@@ -28,13 +28,14 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
-    "firebase-tools": "^13.3.1",
     "@angular-devkit/build-angular": "^17.2.0",
     "@angular/cli": "^17.2.0",
     "@angular/compiler-cli": "^17.2.0",
+    "@angular/localize": "^17.2.2",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "firebase-tools": "^13.3.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
