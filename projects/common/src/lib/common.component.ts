@@ -1,4 +1,4 @@
-import { Component, Inject, Input, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, Inject, Input, LOCALE_ID } from '@angular/core';
 
 @Component({
   selector: 'lib-common',
@@ -13,13 +13,9 @@ import { Component, Inject, Input, LOCALE_ID, OnInit } from '@angular/core';
   </section>
   `,
 })
-export class CommonComponent implements OnInit {
+export class CommonComponent {
   @Input({ required: true }) clientName?: string;
   @Input({ required: true }) greeting?: string;
 
   constructor(@Inject(LOCALE_ID) readonly locale: string) { }
-
-  ngOnInit(): void {
-    console.log("Locale:", this.locale);
-  }
 }

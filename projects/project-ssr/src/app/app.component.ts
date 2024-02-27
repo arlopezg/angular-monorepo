@@ -5,7 +5,8 @@ import { CommonComponent } from '@common-pkg';
   selector: 'app-root',
   standalone: true,
   imports: [CommonComponent],
-  template: `<lib-common greeting="Welcome to" clientName="SSR App"/>`,
+  template: `<lib-common [greeting]="greeting" clientName="SSR App"/>`,
 })
 export class AppComponent {
+  readonly greeting = $localize`:@@welcomeTo:Welcome to`;
 }

@@ -59,14 +59,6 @@
       "root": "projects/project-a",
       "sourceRoot": "projects/project-a/src",
       "prefix": "app-a",
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "es": {
-            "translation": "projects/project-a/locale/messages.es.json"
-          }
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -105,11 +97,6 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
-            },
-            "es": {
-              "localize": [
-                "es"
-              ]
             }
           },
           "defaultConfiguration": "production"
@@ -117,20 +104,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "project-a:build:production"
-            },
-            "development": {
+            "default": {
               "buildTarget": "project-a:build:development"
-            },
-            "en": {
-              "buildTarget": "project-a:build:production,en"
-            },
-            "es": {
-              "buildTarget": "project-a:build:production,es"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "default"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -175,6 +153,17 @@
       "root": "projects/project-ssr",
       "sourceRoot": "projects/project-ssr/src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "es": {
+            "translation": "projects/project-ssr/src/locales/messages.es.json"
+          },
+          "no": {
+            "translation": "projects/project-ssr/src/locales/messages.no.json"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -196,6 +185,7 @@
             "scripts": [],
             "server": "projects/project-ssr/src/main.server.ts",
             "prerender": false,
+            "localize": true,
             "ssr": {
               "entry": "projects/project-ssr/server.ts"
             }
@@ -227,19 +217,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "project-ssr:build:production"
-            },
-            "development": {
+            "default": {
               "buildTarget": "project-ssr:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "default"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "project-ssr:build"
+            "buildTarget": "project-ssr:build",
+            "format": "json",
+            "outputPath": "projects/project-ssr/src/locales"
           }
         },
         "deploy": {

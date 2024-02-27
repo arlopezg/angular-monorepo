@@ -5,9 +5,10 @@
     "build:lib": "ng build common",
     "build:csr": "ng build project-a",
     "build:ssr": "ng build project-ssr",
-    "deploy:ssr": "FIREBASE_FRAMEWORKS_BUILD_TARGET=project-ssr:build:production ng deploy --project=project-ssr",
-    "start:ssr": "npm run build:ssr && node dist/project-ssr/server/server.mjs",
-    "start": "ng serve project-a --port 4001 --configuration=development,es"
+    "deploy:ssr": "FIREBASE_FRAMEWORKS_BUILD_TARGET=project-ssr:build:default ng deploy --project=project-ssr",
+    "serve:ssr": "npm run build:ssr && node dist/project-ssr/server/en/server.mjs",
+    "start:ssr": "ng serve project-ssr --port 4001 --configuration=default,no",
+    "start": "ng serve project-a --port 4002"
   },
   "private": true,
   "dependencies": {
