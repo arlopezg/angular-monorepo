@@ -154,15 +154,18 @@
       "sourceRoot": "projects/project-ssr/src",
       "prefix": "app",
       "i18n": {
-        "sourceLocale": "en",
+        "sourceLocale": {
+          "code": "en",
+          "baseHref": ""
+        },
         "locales": {
           "es": {
             "translation": "projects/project-ssr/src/locales/messages.es.json",
-            "baseHref": "/es/"
+            "baseHref": ""
           },
           "no": {
             "translation": "projects/project-ssr/src/locales/messages.no.json",
-            "baseHref": "/no/"
+            "baseHref": ""
           }
         }
       },
@@ -170,6 +173,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "outputHashing": "bundles",
             "outputPath": "dist/project-ssr",
             "index": "projects/project-ssr/src/index.html",
             "browser": "projects/project-ssr/src/main.ts",
@@ -188,16 +192,8 @@
             }
           },
           "configurations": {
-            "production": {
-              "outputHashing": "bundles"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
-          },
-          "defaultConfiguration": "production"
+            "production": {}
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -220,17 +216,8 @@
           "builder": "@angular/fire:deploy",
           "options": {
             "version": 2,
-            "buildTarget": "project-ssr:build:production",
-            "functionName": "monorepoDemoSsr",
-            "region": "us-central1"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "project-ssr:build:production",
-              "serveTarget": "project-ssr:serve:production"
-            }
-          },
-          "defaultConfiguration": "production"
+            "buildTarget": "project-ssr:build"
+          }
         }
       }
     }
