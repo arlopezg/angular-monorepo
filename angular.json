@@ -157,10 +157,12 @@
         "sourceLocale": "en",
         "locales": {
           "es": {
-            "translation": "projects/project-ssr/src/locales/messages.es.json"
+            "translation": "projects/project-ssr/src/locales/messages.es.json",
+            "baseHref": "/es/"
           },
           "no": {
-            "translation": "projects/project-ssr/src/locales/messages.no.json"
+            "translation": "projects/project-ssr/src/locales/messages.no.json",
+            "baseHref": "/no/"
           }
         }
       },
@@ -171,18 +173,13 @@
             "outputPath": "dist/project-ssr",
             "index": "projects/project-ssr/src/index.html",
             "browser": "projects/project-ssr/src/main.ts",
+            "assets": [
+              "projects/project-ssr/src/assets"
+            ],
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "projects/project-ssr/tsconfig.app.json",
-            "assets": [
-              "projects/project-ssr/src/favicon.ico",
-              "projects/project-ssr/src/assets"
-            ],
-            "styles": [
-              "projects/project-ssr/src/styles.css"
-            ],
-            "scripts": [],
             "server": "projects/project-ssr/src/main.server.ts",
             "prerender": false,
             "localize": true,
@@ -192,19 +189,7 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "outputHashing": "all"
+              "outputHashing": "bundles"
             },
             "development": {
               "optimization": false,
