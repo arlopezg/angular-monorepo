@@ -7,7 +7,7 @@
     "build:ssr": "ng build project-ssr",
     "deploy": "FIREBASE_FRAMEWORKS_BUILD_TARGET=project-ssr:build:production ng run project-ssr:deploy",
     "serve:ssr": "npm run build:ssr && node dist/project-ssr/server/en/server.mjs",
-    "start:ssr": "ng serve project-ssr --port 4001 --configuration=default,no",
+    "start:ssr": "ng serve project-ssr --port 4001",
     "start": "ng serve project-a --port 4002"
   },
   "private": true,

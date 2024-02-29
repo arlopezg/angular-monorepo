@@ -2,14 +2,16 @@ import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
+import { LOCALE_ID } from '@angular/core';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../../browser');
+  const distLang = basename(serverDistFolder);
+  const browserDistFolder = resolve(serverDistFolder, `../../browser/${distLang}`);
   const indexHtml = join(serverDistFolder, 'index.server.html');
 
   const commonEngine = new CommonEngine();
@@ -24,20 +26,20 @@ export function app(): express.Express {
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
+    const { protocol, originalUrl, baseUrl } = req;
 
-    const [lang] = req.acceptsLanguages();
-    const safeLang = lang.split("-")[0];
-
-    console.log("- LANG:", lang);
+    console.log("Serving lang...", distLang);
 
     commonEngine
       .render({
         bootstrap,
         documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
+        url: `${protocol}://${req.hostname}${originalUrl}`,
         publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+        providers: [
+          { provide: APP_BASE_HREF, useValue: baseUrl },
+          { provide: LOCALE_ID, useValue: distLang },
+        ],
       })
       .then((html) => res.send(html))
       .catch((err) => next(err));

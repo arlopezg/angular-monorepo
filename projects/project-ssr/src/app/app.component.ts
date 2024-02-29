@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, LOCALE_ID, afterRender } from '@angular/core';
 import { CommonComponent } from '@common-pkg';
 
 @Component({
@@ -9,4 +9,12 @@ import { CommonComponent } from '@common-pkg';
 })
 export class AppComponent {
   readonly greeting = $localize`:@@welcomeTo:Welcome to`;
+
+  constructor(@Inject(LOCALE_ID) private locale: string) {
+    console.log("Locale:", this.locale);
+
+    afterRender(() => {
+      console.log("Rendering on browser!");
+    })
+  }
 }

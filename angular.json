@@ -15,14 +15,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/common/ng-package.json"
-          },
-          "configurations": {
-            "default": {
-              "tsConfig": "projects/common/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "default"
+            "project": "projects/common/ng-package.json",
+            "tsConfig": "projects/common/tsconfig.lib.json"
+          }
         }
       }
     },
@@ -192,7 +187,10 @@
             }
           },
           "configurations": {
-            "production": {}
+            "production": {},
+            "development": {
+              "localize": false
+            }
           }
         },
         "serve": {
