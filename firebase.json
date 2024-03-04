@@ -6,7 +6,8 @@
       "rewrites": [
         {
           "source": "**",
-          "function": "ssryoimolivestaging"
+          "function": "ssryoimolivestaging",
+          "region": "us-central1"
         }
       ],
       "frameworksBackend": {
