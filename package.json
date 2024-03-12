@@ -7,6 +7,7 @@
     "build:ssr": "ng build project-ssr",
     "deploy": "FIREBASE_FRAMEWORKS_BUILD_TARGET=project-ssr:build:production ng deploy project-ssr",
     "serve:ssr": "npm run build:ssr && node dist/project-ssr/server/en/server.mjs",
+    "start:emulator": "FIREBASE_FRAMEWORKS_BUILD_TARGET=project-ssr:build:production firebase emulators:start",
     "start:ssr": "ng serve project-ssr --port 4001",
     "start": "ng serve project-a --port 4002"
   },
