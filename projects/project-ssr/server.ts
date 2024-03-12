@@ -30,8 +30,6 @@ export function app(): express.Express {
   server.get('*', (req, res, next) => {
     const { protocol, originalUrl, baseUrl } = req;
 
-    console.log("Serving lang...", distLang);
-
     commonEngine
       .render({
         bootstrap,

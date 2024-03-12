@@ -6,11 +6,12 @@
       "rewrites": [
         {
           "source": "**",
-          "function": "ssryoimolivestaging",
-          "region": "us-central1"
+          "function": "ssrng17monorepo"
         }
       ],
       "frameworksBackend": {
+        "memory": "2GiB",
+        "minInstances": 1,
         "region": "us-central1"
       }
     }
