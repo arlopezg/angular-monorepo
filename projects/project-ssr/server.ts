@@ -30,7 +30,7 @@ export function app(): express.Express {
   server.get('*', (req, res, next) => {
     const { protocol, originalUrl, baseUrl } = req;
 
-    commonEngine
+    return commonEngine
       .render({
         bootstrap,
         documentFilePath: indexHtml,
@@ -49,12 +49,12 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
+  const { env } = process;
+  const port = env["FIREBASE_FUNCTIONS_EMULATOR_HOST"] || env["PORT"] || 4000;
 
-  // Start up the Node server
-  const server = app();
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+  app().listen(port, () => {
+    // Start up the Node server
+    console.log(`Node Express server should listen on http://localhost:${port}`);
   });
 }
 

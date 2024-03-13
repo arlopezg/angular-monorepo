@@ -214,7 +214,8 @@
           "builder": "@angular/fire:deploy",
           "options": {
             "version": 2,
-            "buildTarget": "project-ssr:build"
+            "buildTarget": "project-ssr:build:production",
+            "serveTarget": "project-ssr:serve:production"
           }
         }
       }

@@ -6,7 +6,7 @@
     "yoimo-live-staging": {
       "hosting": {
         "project-ssr": [
-          "yoimo-live-staging"
+          "ng17-monorepo"
         ]
       }
     }

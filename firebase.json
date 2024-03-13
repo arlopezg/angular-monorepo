@@ -10,8 +10,6 @@
         }
       ],
       "frameworksBackend": {
-        "memory": "2GiB",
-        "minInstances": 1,
         "region": "us-central1"
       }
     }
