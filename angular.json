@@ -187,9 +187,11 @@
             }
           },
           "configurations": {
-            "production": {},
             "development": {
               "localize": false
+            },
+            "production": {
+              "optimization": true
             }
           }
         },
@@ -214,8 +216,17 @@
           "builder": "@angular/fire:deploy",
           "options": {
             "version": 2,
-            "buildTarget": "project-ssr:build:production",
-            "serveTarget": "project-ssr:serve:production"
+            "firebaseProject": "yoimo-live-staging",
+            "buildTarget": "project-ssr:build",
+            "serveTarget": "project-ssr:serve"
+          },
+          "configurations": {
+            "development": {},
+            "production": {
+              "firebaseProject": "yoimo-live-production",
+              "buildTarget": "project-ssr:build:production",
+              "serveTarget": "project-ssr:serve:production"
+            }
           }
         }
       }

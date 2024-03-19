@@ -1,8 +1,14 @@
 {
   "hosting": [
     {
-      "target": "project-ssr",
+      "target": "project-ssr-development",
       "source": ".",
+      "ignore": [
+        "firebase.json",
+        "index.html",
+        "**/index.html",
+        "**/node_modules/**"
+      ],
       "rewrites": [
         {
           "source": "**",
@@ -11,13 +17,27 @@
       ],
       "frameworksBackend": {
         "region": "us-central1"
-      },
+      }
+    },
+    {
+      "target": "project-ssr-production",
+      "source": ".",
       "ignore": [
         "firebase.json",
         "index.html",
         "**/index.html",
         "**/node_modules/**"
-      ]
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "ssrng17monorepo"
+        }
+      ],
+      "frameworksBackend": {
+        "minInstances": 1,
+        "region": "europe-west2"
+      }
     }
   ]
 }
